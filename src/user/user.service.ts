@@ -15,5 +15,3 @@ export class UserService {
     return JSON.parse(fileData) as IUser[];
   }
 }
-
-
