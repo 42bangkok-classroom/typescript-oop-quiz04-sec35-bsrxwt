@@ -9,9 +9,11 @@ export class UserService {
   }
   findAll(): IUser[] {
     const fileData = fs.readFileSync(
-      path.join(process.cwd(), 'user', 'user.json'),
+      path.join(process.cwd(), 'data', 'users.json'),
       'utf-8',
     );
     return JSON.parse(fileData) as IUser[];
   }
 }
+
+
