@@ -7,7 +7,8 @@ export class UserService{
     test(){
         return [];
     }
-    // findAll(): IUser[]{
-    //     const fileData = fs.readFileSync(path.join(process.cwd,'user','user.json'),"utf-8");
-    // }
+    findAll(): IUser[]{
+        const fileData = fs.readFileSync(path.join(process.cwd(),'user','user.json'),"utf-8");
+        return JSON.parse(fileData) as IUser[];
+    }
 }
