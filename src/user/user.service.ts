@@ -20,9 +20,9 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-    // if(!fields||fields.length===0){
-    //   return {};
-    // }
+    if(!fields||fields.length===0){
+      return {};
+    }
     if (fields && fields.length > 0) {
       const fielduser: Partial<IUser> = {};
       fields.forEach((field) => {
