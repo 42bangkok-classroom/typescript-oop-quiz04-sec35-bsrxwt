@@ -13,8 +13,11 @@ export class UserController {
     return this.userService.findAll();
   }
   @Get(':id')
-      findOne(@Param('id') id: string,@Query('fields') fields?: string,): IUser | Partial<IUser> { 
-      const fieldArray = fields ? fields.split(',') : undefined;
-      return this.userService.findOne(id, fieldArray);
+  findOne(
+    @Param('id') id: string,
+    @Query('fields') fields?: string,
+  ): IUser | Partial<IUser> {
+    const fieldArray = fields ? fields.split(',') : undefined;
+    return this.userService.findOne(id, fieldArray);
   }
 }
