@@ -20,18 +20,18 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-    if (!fields || fields.length === 0) {
+    if (!fields) {
+      return user;
+    }
+    if (fields.length === 0) {
       return {};
     }
-    if (fields && fields.length > 0) {
-      const fielduser: Partial<IUser> = {};
-      fields.forEach((field) => {
-        if (field in user) {
-          fielduser[field as keyof IUser] = user[field as keyof IUser];
-        }
-      });
-      return fielduser;
-    }
-    return user;
+    const fielduser: Partial<IUser> = {};
+    fields.forEach((field) => {
+      if (field in user) {
+        fielduser[field as keyof IUser] = user[field as keyof IUser];
+      }
+    });
+    return fielduser;
   }
 }
